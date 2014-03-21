@@ -206,8 +206,72 @@ function initmap() {
                             <iframe src="maps/mapVectorLayer.html" frameborder="0" width="1200px" height="400px" scrolling="now">
 </iframe>
                         </section>
-                        <section data-id="986fb4acf606c1de4e6b2ad92a31df72">
+                       <section data-id="0ea35a71738ff58d073486dc3d057f40">
                             <h2>OpenLayers</h2>
+                            <h3>Capas Raster</h3>
+                            <h4 class="fragment" data-fragment-index="0">Código HMTL</h4>
+                            <pre class="fragment" style="box-shadow: 0 0 0 rgba(0,0,0,.3);" data-fragment-index="1">
+<code data-trim="" style="word-wrap: break-word;">
+                <div id="map" style="width:100%;height:330px" class="smallmap"></div>
+                                </code>
+</pre>
+                            <h4 class="fragment" data-fragment-index="2">Código javascript</h4>
+                            <pre class="fragment" style="box-shadow: 0 0 0 rgba(0,0,0,.3);" data-fragment-index="3">
+<code data-trim="" style="word-wrap: break-word;">
+			function init() {
+			    var map = new OpenLayers.Map({
+			        div: "map"
+			    });
+			    var osm = new OpenLayers.Layer.OSM();
+			    map.addLayers([osm]);
+			    map.setCenter(
+		                new OpenLayers.LonLat(2.8199439, 41.9793006)
+				.transform(new OpenLayers.Projection("EPSG:4326"),
+		                    map.getProjectionObject()), 12);
+			}
+                                </code>
+</pre>
+                        </section>
+                        <section data-id="726c7a1e0cc11aa5aa4349044c307791">
+                            <h2>OpenLayers</h2>
+                            <h3>Capas Raster</h3>
+                            <iframe src="maps/mapRasterLayerOL.html" frameborder="0" width="1200px" height="400px" scrolling="now">
+</iframe>
+                        </section>
+                        <section data-id="71c74c97375a12426d61f52fcfa2034b">
+                            <h2>OpenLayers</h2>
+                            <h3>Capas Vectoriales</h3>
+                            <h4 class="fragment" data-fragment-index="0">Código HMTL</h4>
+                            <pre class="fragment" style="box-shadow: 0 0 0 rgba(0,0,0,.3);" data-fragment-index="1">
+<code data-trim="" style="word-wrap: break-word;">
+                <div id="map" style="width:100%;height:330px" class="smallmap"></div>
+                                </code>
+</pre>
+                            <h4 class="fragment" data-fragment-index="2">Código javascript</h4>
+                            <pre class="fragment" style="box-shadow: 0 0 0 rgba(0,0,0,.3);" data-fragment-index="3">
+<code data-trim="" style="word-wrap: break-word;">
+function init() {
+		    var map = new OpenLayers.Map("map");
+		    var feature = new OpenLayers.Feature.Vector(
+		                    new OpenLayers.Geometry.Point(
+		                        313914.7189699, 5157879.2777324
+		                    ), {type: 40});
+	              var layer = new OpenLayers.Layer.Vector('Points', {
+	                styleMap: new OpenLayers.StyleMap({
+	                    pointRadius: "${type}", // based on feature.attributes.type
+	                    fillColor: "#FF6666",fillOpacity: 0.3
+	                })});
+		    layer.addFeatures([feature]);
+	            map.addLayer(layer);
+	}
+                                </code>
+</pre>
+                        </section>
+                        <section data-id="68c9ae55009ddc2c47f3bee3421f89e3">
+                            <h2>OpenLayers</h2>
+                            <h3>Capas Vectoriales</h3>
+                            <iframe src="maps/mapVectorLayerOL.html" frameborder="0" width="1200px" height="400px" scrolling="now">
+</iframe>
                         </section>
                         <section data-id="31afd5f386af130dfa5e57cf6a50015a">
                             <h2>Puntuación</h2>
@@ -249,8 +313,18 @@ function initmap() {
     <div style="font-size: 35.4107666015625px; font-style: normal; font-variant: normal; text-align: left;">Nos interesa:</div>
     <div style="font-size: 35.4107666015625px; font-style: normal; font-variant: normal;">
         <ul>
-            <li style="text-align: left;">Interacción con el mapa</li>
-            <li style="text-align: left;">Interacción con las capas</li>
+            <li style="text-align: left;">Interacción con el mapa
+		<ul>
+	            <li style="text-align: left;">Click</li>
+	            <li style="text-align: left;">Arrastre</li>
+	            <li style="text-align: left;">...</li>
+        	</ul></li>
+            <li style="text-align: left;">Interacción con las capas
+		<ul>
+	            <li style="text-align: left;">Selección de Feature</li>
+	            <li style="text-align: left;">Arrastre de Feature</li>
+	            <li style="text-align: left;">...</li>
+        	</ul></li>
         </ul>
         <div style="font-size: 35.4107666015625px; font-style: normal; font-variant: normal; text-align: left;">
             <br>
@@ -301,9 +375,6 @@ function initmap() {
                         
                     </section>
                         
-                        
-                        
-                        
                     <section data-id="cbbc1a91b71cfeec63598de81bbad849">
                         <section data-background-image="https://s3.amazonaws.com/media-p.slid.es/uploads/mariaariasdereyna/images/235842/cat-fight-image.jpg" data-id="78a6c4742a860e7696a6cfa7a5b54afc">
                             <h2>Map Controls</h2>
@@ -332,7 +403,6 @@ function initmap() {
                         </section>
                         <section data-id="4a0c1e0431c8e9d996dd00c78787beb8">
                             <h2>LeafLet</h2>
-                            <h2>Map Controls</h2>
                             <h4 class="fragment" data-fragment-index="0">Código HMTL</h4>
                             <pre class="fragment" style="box-shadow: 0 0 0 rgba(0,0,0,.3);" data-fragment-index="1">
         <code data-trim="" style="word-wrap: break-word;">
@@ -386,8 +456,61 @@ function initmap() {
                             <iframe src="maps/mapControls.html" frameborder="0" width="1200px" height="400px" scrolling="now">
 </iframe>
                         </section>
-                        <section data-id="b352dac3c7cba3352c84418f83ba8678">
+                        <section data-id="4a0c1e0431c8e9d996dd00c78787beb8">
                             <h2>OpenLayers</h2>
+                            <h4 class="fragment" data-fragment-index="0">Código HMTL</h4>
+                            <pre class="fragment" style="box-shadow: 0 0 0 rgba(0,0,0,.3);" data-fragment-index="1">
+        <code data-trim="" style="word-wrap: break-word;">
+                <div id="map" style="width:100%;height:330px" class="smallmap"></div>
+        </code>
+    </pre>
+                            <h4 class="fragment" data-fragment-index="2">Código javascript</h4>
+                            <pre class="fragment" style="box-shadow: 0 0 0 rgba(0,0,0,.3);" data-fragment-index="3">
+    <code data-trim="" style="word-wrap: break-word;">
+                function init() {
+			   //zoom y selector de capas vienen por defecto
+			   // atribution viene por defecto para OSM, pero vamos a añadirlos explícitamente para otra capa
+			    var map = new OpenLayers.Map("map");
+			                var options = {attribution: {
+			                        title: "Provided by OSGeo",
+			                        href: "http://www.osgeo.org/"
+			                    }};
+			    map.addLayer(new OpenLayers.Layer.WMS("OpenLayers WMS",
+			              "http://vmap0.tiles.osgeo.org/wms/vmap0?", {layers:'basic'}, options));
+			    map.setCenter([2.8199439, 41.9793006], 12);
+			    var vectors = new OpenLayers.Layer.Vector("vector",  {
+		                styleMap: new OpenLayers.StyleMap({
+		                    pointRadius: "${type}", // based on feature.attributes.type
+		                    fillColor: "#FF6666",
+				    fillOpacity: 0.3})}
+				);
+		            map.addLayer(vectors);
+		            var feature = new OpenLayers.Feature.Vector(
+		                 new OpenLayers.Geometry.Point(2.8199439, 41.9793006),
+					{type:40});
+		            vectors.addFeatures([feature]);
+		
+		            var highlightCtrl = new OpenLayers.Control.SelectFeature(vectors, {
+		                hover: true, highlightOnly: false,
+		                eventListeners: {featurehighlighted: report}
+		            });
+		
+		            var selectCtrl = new OpenLayers.Control.SelectFeature(vectors,{clickout: true});
+		
+		            map.addControl(highlightCtrl);
+		            map.addControl(selectCtrl);
+		            highlightCtrl.activate();
+			    selectCtrl.activate();
+			   map.addControls([new OpenLayers.Control.ScaleLine()]);
+			}
+                                </code>
+</pre>
+</section>
+                        <section data-id="048779688ccb5728e01525f64a15d0a6">
+                            <h2>OpenLayers</h2>
+                            <h2>Map Controls</h2>
+                            <iframe src="maps/mapControlsOL.html" frameborder="0" width="1200px" height="400px" scrolling="now">
+</iframe>
                         </section>
                         <section data-id="3fbf04dac37299b72ebd11bb85f8d4de">
                             <h2>Puntuación</h2>
